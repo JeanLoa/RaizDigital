@@ -1,18 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Web de Raiz Digital</title>
-  </head>
-  <body>
-    <h1>Este es un prototipo de la aplicación</h1>
-    <p>
-      Bienvenido a la página web de Raiz Digital. Esta es una demostración
-      básica de una estructura HTML.
-    </p>
-    <footer>
-      <p>&copy; 2024 Raiz Digital. Todos los derechos reservados.</p>
-    </footer>
-  </body>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Escaneo de Plantas — PlantScan</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+<h1>PlantScan</h1>
+<p>Escanea plantas, guarda reseñas y aprende cómo cuidarlas.</p>
+</header>
+
+
+<main class="container">
+<section class="scanner">
+<div class="uploader">
+<label class="btn" for="fileInput">Seleccionar imagen (o arrastrar)</label>
+<input id="fileInput" type="file" accept="image/*" />
+<button id="scanBtn" class="btn primary" disabled>Escanear planta</button>
+</div>
+
+
+<div class="preview">
+<canvas id="thumbCanvas" width="320" height="240" hidden></canvas>
+<img id="previewImg" alt="Vista previa" />
+<div class="progress" hidden>
+<div class="progress-bar" id="progressBar" style="width:0%"></div>
+</div>
+</div>
+</section>
+
+
+<section class="results">
+<h2>Reseña por planta escaneada</h2>
+<div id="resultList" class="result-list">
+<!-- tarjetas de plantas escaneadas aparecern aquí -->
+</div>
+
+
+<div class="controls">
+<button id="exportBtn" class="btn" disabled>Exportar JSON</button>
+<button id="clearBtn" class="btn danger">Borrar todo</button>
+</div>
+</section>
+</main>
+
+
+<footer class="site-footer">
+<small>PlantScan — demo interactiva • No usa reconocimiento real (demo local)</small>
+</footer>
+
+
+<script src="app.js"></script>
+</body>
 </html>
