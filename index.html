@@ -1,24 +1,42 @@
-<!DOCTYPE html>
+<!-- FILE: index.html -->
+<!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Escaneo de Plantas — PlantScan</title>
+<title>RaizDigital — Escaneo de Plantas</title>
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <header class="site-header">
-<h1>PlantScan</h1>
-<p>Escanea plantas, guarda reseñas y aprende cómo cuidarlas.</p>
+<div class="brand">
+<div class="logo">🌱</div>
+<div>
+<h1>RaizDigital</h1>
+<p class="tagline">Escaneo inteligente de plantas • Guarda reseñas, organiza y aprende</p>
+</div>
+</div>
+<nav class="top-controls">
+<input id="searchInput" type="search" placeholder="Buscar por especie, nota o nombre de archivo" />
+<select id="filterSelect" title="Filtrar por especie"><option value="all">Todas las especies</option></select>
+<button id="importBtn" class="btn">Importar JSON</button>
+<button id="exportBtn" class="btn" disabled>Exportar</button>
+<button id="clearBtn" class="btn danger">Borrar todo</button>
+</nav>
 </header>
 
 
 <main class="container">
-<section class="scanner">
+<section class="left-panel">
+<div class="scanner card">
+<h2>Escanear planta</h2>
+<p class="muted">Arrastra una imagen o selecciona un archivo. El sistema simula un análisis local y sugiere una especie.</p>
+
+
 <div class="uploader">
-<label class="btn" for="fileInput">Seleccionar imagen (o arrastrar)</label>
+<label class="btn" for="fileInput">Seleccionar imagen</label>
 <input id="fileInput" type="file" accept="image/*" />
-<button id="scanBtn" class="btn primary" disabled>Escanear planta</button>
+<button id="scanBtn" class="btn primary" disabled>Escanear</button>
 </div>
 
 
@@ -29,29 +47,25 @@
 <div class="progress-bar" id="progressBar" style="width:0%"></div>
 </div>
 </div>
-</section>
 
 
-<section class="results">
-<h2>Reseña por planta escaneada</h2>
-<div id="resultList" class="result-list">
-<!-- tarjetas de plantas escaneadas aparecern aquí -->
+<div class="scan-results" hidden>
+<h3>Resultado sugerido</h3>
+<div id="suggestion" class="suggestion"></div>
+<div class="actions">
+<button id="addToLibraryBtn" class="btn primary">Agregar a mi biblioteca</button>
+<button id="reScanBtn" class="btn">Volver a escanear</button>
+</div>
+</div>
 </div>
 
 
-<div class="controls">
-<button id="exportBtn" class="btn" disabled>Exportar JSON</button>
-<button id="clearBtn" class="btn danger">Borrar todo</button>
+<div class="instructions card">
+<h3>Consejos para mejores escaneos</h3>
+<ul>
+<li>Usa buena iluminación, evita sombras fuertes.</li>
+<li>Acércate al detalle foliar (hojas/pecíolos) y evita fondo ocupado.</li>
+<li>Realiza varios escaneos desde distintos ángulos.</li>
+</ul>
 </div>
-</section>
-</main>
-
-
-<footer class="site-footer">
-<small>PlantScan — demo interactiva • No usa reconocimiento real (demo local)</small>
-</footer>
-
-
-<script src="app.js"></script>
-</body>
 </html>
